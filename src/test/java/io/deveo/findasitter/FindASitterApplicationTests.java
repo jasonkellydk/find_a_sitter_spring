@@ -1,4 +1,4 @@
-package io.deveo.findASitter;
+package io.deveo.findasitter;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
