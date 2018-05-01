@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 @Configuration
@@ -27,22 +29,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
     // Entry points
-    http.authorizeRequests()//
+    http.authorizeRequests()
         .antMatchers("/auth/login").permitAll()
         .antMatchers("/auth/signup").permitAll()
         .antMatchers("/error").permitAll()
-        // Disallow everything else..
         .anyRequest().authenticated();
 
     // Apply JWT
     http.addFilterBefore(jwtTokenFilter, BasicAuthenticationFilter.class);
-
-    // Optional, if you want to test the API from a browser
-    // http.httpBasic();
   }
 
   @Bean
   public AuthenticationManager customAuthenticationManager() throws Exception {
     return authenticationManager();
+  }
+
+  @Bean
+  public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
   }
 }

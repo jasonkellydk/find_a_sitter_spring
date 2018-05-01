@@ -1,5 +1,6 @@
 package io.deveo.findasitter.app.user.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,15 +20,14 @@ public class User {
 
   private String email;
 
+  @JsonIgnore
   private String password;
 
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "role_id", nullable = false)
   private Role role;
 
-  public User() {
-
-  }
+  public User() {}
 
   public String getEmail() {
     return email;
