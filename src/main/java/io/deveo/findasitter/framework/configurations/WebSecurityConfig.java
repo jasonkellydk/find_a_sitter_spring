@@ -4,6 +4,7 @@ import io.deveo.findasitter.framework.filters.JwtTokenFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -24,6 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     // Disable CSRF (cross site request forgery)
     http.csrf().disable();
+    http.cors();
 
     // No session will be created or used by spring security
     http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
@@ -36,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .anyRequest().authenticated();
 
     // Apply JWT
-    http.addFilterBefore(jwtTokenFilter, BasicAuthenticationFilter.class);
+    http.addFilterAfter(jwtTokenFilter, BasicAuthenticationFilter.class);
   }
 
   @Bean

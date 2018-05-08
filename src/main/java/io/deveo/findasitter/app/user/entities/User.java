@@ -20,6 +20,8 @@ public class User {
 
   private String email;
 
+  private String name;
+
   @JsonIgnore
   private String password;
 
@@ -59,5 +61,13 @@ public class User {
 
   public void setRole(Role role) {
     this.role = role;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 }
