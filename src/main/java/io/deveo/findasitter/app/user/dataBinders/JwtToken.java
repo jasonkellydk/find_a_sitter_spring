@@ -1,4 +1,4 @@
-package io.deveo.findasitter.app.user.models;
+package io.deveo.findasitter.app.user.dataBinders;
 
 public class JwtToken {
 

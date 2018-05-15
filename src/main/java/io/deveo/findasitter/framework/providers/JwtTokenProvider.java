@@ -1,13 +1,9 @@
 package io.deveo.findasitter.framework.providers;
 
-import io.deveo.findasitter.app.user.entities.Role;
-import io.deveo.findasitter.app.user.models.JwtToken;
+import io.deveo.findasitter.app.user.dataBinders.JwtToken;
 import io.deveo.findasitter.framework.adapters.UserAdapter;
 import java.util.Base64;
 import java.util.Date;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 

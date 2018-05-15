@@ -1,8 +1,8 @@
-package io.deveo.findasitter.app.user.models;
+package io.deveo.findasitter.app.user.dataBinders;
 
 import io.deveo.findasitter.app.user.entities.Role;
 
-public class UserModel {
+public class UserDataBinders {
 
   private String email;
 
@@ -12,7 +12,7 @@ public class UserModel {
 
   private Role role;
 
-  public UserModel(){}
+  public UserDataBinders(){}
 
   public String getEmail() {
     return email;

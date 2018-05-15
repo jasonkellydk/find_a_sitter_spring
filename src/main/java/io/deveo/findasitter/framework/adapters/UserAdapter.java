@@ -19,7 +19,7 @@ public class UserAdapter implements UserDetailsService {
     final User user = userRepository.findByEmail(email);
 
     if (user == null) {
-      throw new UsernameNotFoundException("UserModel '" + email + "' not found");
+      throw new UsernameNotFoundException("UserDataBinders '" + email + "' not found");
     }
 
     return org.springframework.security.core.userdetails.User

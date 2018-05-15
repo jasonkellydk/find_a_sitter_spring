@@ -2,7 +2,7 @@ package io.deveo.findasitter.app.user.services;
 
 import io.deveo.findasitter.app.user.entities.Role;
 import io.deveo.findasitter.app.user.entities.User;
-import io.deveo.findasitter.app.user.models.JwtToken;
+import io.deveo.findasitter.app.user.dataBinders.JwtToken;
 import io.deveo.findasitter.app.user.repositories.UserRepository;
 import io.deveo.findasitter.framework.providers.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +24,10 @@ public class AuthService {
 
   public AuthService() {}
 
-  public JwtToken authenticate(String username, String password) {
-    authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+  public JwtToken authenticate(String email, String password) {
+    authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
 
-    User user = userRepository.findByEmail(username);
+    User user = userRepository.findByEmail(email);
 
     if (user == null) {
       return null;
@@ -39,11 +39,11 @@ public class AuthService {
       return null;
     }
 
-    return jwtTokenProvider.createToken(username, role.getType());
+    return jwtTokenProvider.createToken(email, role.getType());
   }
 
-  public User findUserByusername(String username) {
-    User user = userRepository.findByEmail(username);
+  public User findUserByEmail(String email) {
+    User user = userRepository.findByEmail(email);
 
     if (user == null) {
       return null;
