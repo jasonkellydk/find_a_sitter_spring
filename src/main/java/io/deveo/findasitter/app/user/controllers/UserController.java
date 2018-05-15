@@ -1,5 +1,7 @@
 package io.deveo.findasitter.app.user.controllers;
 
+import cz.jirutka.rsql.parser.RSQLParser;
+import cz.jirutka.rsql.parser.ast.Node;
 import io.deveo.findasitter.app.user.dataBinders.UserDataBinders;
 import io.deveo.findasitter.app.user.entities.User;
 import io.deveo.findasitter.app.user.services.UserService;
@@ -25,5 +27,14 @@ public class UserController {
   public @ResponseBody
   List<User> findAll() {
     return userService.findAll();
+  }
+
+  @GetMapping(value = "/userstest")
+  public List<User> findAllByRsql(@RequestParam(value = "search") String search) {
+    Node rootNode = new RSQLParser().parse(search);
+    System.out.println(rootNode);
+    // Specification<User> spec = rootNode.accept(new CustomRsqlVisitor<User>());
+   // return repo.findAll(spec);
+    return null;
   }
 }
