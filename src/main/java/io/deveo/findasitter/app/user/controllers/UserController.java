@@ -1,5 +1,6 @@
 package io.deveo.findasitter.app.user.controllers;
 
+import io.deveo.findasitter.app.user.models.UserModel;
 import io.deveo.findasitter.app.user.entities.User;
 import io.deveo.findasitter.app.user.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class UserController {
 
   @PostMapping(value = "/users")
   public @ResponseBody
-  User CreateUser(@RequestBody User user) {
+  User createUser(@RequestBody UserModel user) {
     return userService.createUser(user.getEmail(), user.getPassword(), user.getName());
   }
 
