@@ -25,12 +25,22 @@ public class User {
   @JoinColumn(name = "role_id", nullable = false)
   private Role role;
 
+  private String location;
+
   public User() {}
 
   public User(String email, String password, String name) {
         this.email = email;
         this.password = password;
         this.name = name;
+  }
+
+  public String getLocation() {
+    return location;
+  }
+
+  public void setLocation(String location) {
+    this.location = location;
   }
 
   public String getEmail() {

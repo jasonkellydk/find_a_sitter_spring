@@ -5,6 +5,8 @@ import io.deveo.findasitter.app.user.entities.User;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+import org.hibernate.annotations.Type;
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name="ratings")
@@ -16,6 +18,9 @@ public class Rating {
 
   private int rating;
 
+  @Type(type="text")
+  @Column(columnDefinition="text")
+  @Length(max=1000)
   private String message;
 
   @ManyToOne

@@ -1,5 +1,6 @@
 package io.deveo.findasitter.app.user.repositories;
 
+import io.deveo.findasitter.app.user.entities.Role;
 import io.deveo.findasitter.app.user.entities.User;
 
 import java.util.List;
@@ -17,4 +18,5 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
   public User findById(int id);
 
+  public List<User> findAllByRole(Role role);
 }

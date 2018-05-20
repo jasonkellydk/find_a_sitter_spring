@@ -10,7 +10,7 @@ public class UserDataBinders {
 
   private String password;
 
-  private Role role;
+  private String role;
 
   public UserDataBinders(){}
 
@@ -38,11 +38,11 @@ public class UserDataBinders {
     this.password = password;
   }
 
-  public Role getRole() {
+  public String getRole() {
     return role;
   }
 
-  public void setRole(Role role) {
+  public void setRole(String role) {
     this.role = role;
   }
 }
