@@ -16,8 +16,9 @@ And Faker, a dependency to get dummy data like names, cities, quotes etc.
 
 Combined made we 3 shell commands to populate the database.
 
-generate_roles
-generate_users
-generate_ratings
+#### generate_roles
+#### generate_users
+#### generate_ratings
 
-When running the backend, use these to commands (in that order) to populate the database. 
+When running the backend, use these to commands (in that order) via the shell(run terminal) to populate the database. 
+
