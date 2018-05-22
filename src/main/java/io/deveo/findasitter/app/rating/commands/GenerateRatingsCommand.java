@@ -37,7 +37,7 @@ public class GenerateRatingsCommand {
         rating.setMessage(faker.yoda().quote());
         rating.setRating(faker.random().nextInt(1, 5));
         rating.setRatingFrom(user);
-        rating.setRatingTo(user);
+        rating.setRatingTo(users.get(faker.random().nextInt(1,users.size()-1)));
 
         ratings.add(rating);
       }
