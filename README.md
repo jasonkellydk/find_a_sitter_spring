@@ -14,8 +14,9 @@ We needed a lot of data in the application to streestest how it handles under th
 Spring-shell, which gives us an interactive shell for running custom commands (methods to populate the database with dummy data).
 And Faker, a dependency to get dummy data like names, cities, quotes etc.
 
-Combined made we 2 shell commands to populate the database.
+Combined made we 3 shell commands to populate the database.
 
+generate_roles
 generate_users
 generate_ratings
 
